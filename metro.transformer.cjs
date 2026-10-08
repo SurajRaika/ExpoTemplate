@@ -24,7 +24,7 @@ const getLanguage = (filename) => {
 };
 
 const transform = async ({ filename, src, ...options }) => {
-  if (/[\\/]node_modules[\\/]/.test(filename)) {
+  if (/(?:^|[\\/])node_modules[\\/]/.test(filename)) {
     return upstreamTransformer.transform({ filename, src, ...options });
   }
 
